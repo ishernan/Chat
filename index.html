@@ -26,34 +26,33 @@
     <title>Chat</title>
   </head>
   <body>
+    <div class="row justify-content-center">
+      <div class="col col-lg-8">
+        <nav class="container navbar navbar-dark bg-dark">
+          <div class="container">
+            <a href="http://" class="navbar-brand" id="nomUtilisateur"><span class="lead">I-Chat</span></a>
+            <div>
+              <button class="btn btn-info" id="btnLogin">Login</button>
+              <button class="btn btn-danger" id="btnDéconnextion">Déconnexion</button>
+            </div>
+          </div>
+        </nav>
+        
+        <main class="container py-3 container-chat shadow-lg p-3 mb-5 bg-body rounded image" id="contenuWeb">
+          <!-- <div class="text-start">
+            <span class="badge bg-secondary">lui</span>
+          </div>
+          <div class="text-end">
+            <span class="badge bg-primary">Moi</span>
+          </div> -->
+        </main>
 
-    <nav class="navbar navbar-bar-dark bg-dark">
-      <div class="container">
-        <a href="http://" class="navbar-brand" id="nomUtilisateur">I-Chat</a>
-        <div>
-          <button class="btn btn-primary" id="btnLogin">Login</button>
-          <button class="btn btn-danger" id="btnDéconnextion">Déconnexion</button>
-        </div>
+        <form id="formulaire" class="container mb-2 fixed-bottom">
+          <input type="text" class="form-control" placeholder="..." id="text">
+          <button class="btn btn-dark w-100 mt-2" type="submit">Envoyer</button>
+        </form>
       </div>
-    </nav>
-    
-    <main class="container py-3 container-chat shadow-lg p-3 mb-5 bg-body rounded " id="contenuWeb">
-      <!-- <div class="text-start">
-        <span class="badge bg-secondary">lui</span>
-      </div>
-      <div class="text-end">
-        <span class="badge bg-primary">Moi</span>
-      </div> -->
-    </main>
-
-    <form id="formulaire" class="container mb-2 fixed-bottom">
-      <input type="text" class="form-control" placeholder="..." id="text">
-      <button class="btn btn-dark w-100 mt-2" type="submit">Envoyer</button>
-
-
-
-    </form>
-
+    </div>
 
 
 

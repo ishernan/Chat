@@ -2,3 +2,7 @@
   height: calc(100vh - 180px); /* calcule le height par rapport à l'ecran */ 
   overflow-y: scroll;
 }
+
+.image{
+  background-image: url('./images/phone-1869510_1280.jpg');
+}
