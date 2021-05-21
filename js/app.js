@@ -47,9 +47,16 @@ const chatContenu = (user)=> {
             if (change.type === "added") { //quand on ecrit
                 console.log("Ajoute chat: ", change.doc.data());
             }
+              if(user.uid === change.doc.data().uid)//si l'info qui vient de notre base de donnés est égal à l'utilisateur enregistré 
+              { 
+                contenuWeb.innerHTML += //on ajoute cet element html au côté droit (text-end)
+                `<div class="text-end"><span class="badge bg-primary">${change.doc.data().text}</span></div>`
+              } else {
+                contenuWeb.innerHTML += //on ajoute cet element html au côté gauche (text-start)
+                `<div class="text-start"><span class="badge bg-secondary">${change.doc.data().text}</span></div>`
+              }
 
 
-            
             if (change.type === "modified") {
                 console.log("Modifie chat: ", change.doc.data());
             }
