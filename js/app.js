@@ -73,7 +73,7 @@ const chatContenu = (user)=> {
 
 const actionAcces = ()=> {
   formulaire.classList.add('d-none'); 
-  contenuWeb.innerHTML = `<p class="lead mt-5 text-center bg-white w-25">Initialiser session</p>`
+  contenuWeb.innerHTML = `<p class="lead mt-5 text-center bg-white w-25 border rounded-3">Initialiser session</p>`
 
   btnLogin.addEventListener('click', async()=>{
     const provider = new firebase.auth.GoogleAuthProvider();
