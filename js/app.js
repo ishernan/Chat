@@ -13,6 +13,7 @@ firebase.auth().onAuthStateChanged((user) => { //Définir un observateur d'état
     actionFermerSession()
     nomUtilisateur.innerHTML = user.displayName; //proprieté de l'objet 'user' (acces avec clg de user)
     chatContenu(user)
+    contenuWeb.innerHTML= ''; 
 
   } else {
     actionAcces()
