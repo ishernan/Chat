@@ -9,11 +9,11 @@ const formulaire      = document.querySelector('#formulaire');
 
 firebase.auth().onAuthStateChanged((user) => { //Définir un observateur d'état d'authentification et obtenir les données utilisateur. 
   if (user) {
+    contenuWeb.innerHTML= ''; //pour netoyer dès que l'utilisateur est detecté
     console.log(user)
     actionFermerSession()
     nomUtilisateur.innerHTML = user.displayName; //proprieté de l'objet 'user' (acces avec clg de user)
     chatContenu(user)
-    contenuWeb.innerHTML= ''; 
 
   } else {
     actionAcces()
@@ -56,6 +56,8 @@ const chatContenu = (user)=> {
                 contenuWeb.innerHTML += //on ajoute cet element html au côté gauche (text-start)
                 `<div class="text-start"><span class="badge bg-secondary">${change.doc.data().text}</span></div>`
               }
+
+              contenuWeb.scrollTop = contenuWeb.scrollHeight //pour controler l'hauteur de notre scroll et bouger l'ecran en accord les mmessages 
 
 
             if (change.type === "modified") {
