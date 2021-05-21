@@ -7,3 +7,18 @@ const formulaire      = document.querySelector('#formulaire');
 
 
 
+firebase.auth().onAuthStateChanged((user) => { //Définir un observateur d'état d'authentification et obtenir les données utilisateur. 
+  if (user) {
+    actionFermerSession()
+  } else {
+    actionAcces()
+  }
+});
+
+const actionFermerSession = ()=> {
+
+  }
+
+const actionAcces = ()=> {
+  
+}
