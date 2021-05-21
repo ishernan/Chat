@@ -1,3 +1,4 @@
 .container-chat {
-  height: calc(100vh - 160px);
+  height: calc(100vh - 160px); /* calcule le height par rapport à l'ecran */ 
+  overflow-y: scroll;
 }
