@@ -11,7 +11,7 @@ firebase.auth().onAuthStateChanged((user) => { //Définir un observateur d'état
   if (user) {
     console.log(user)
     actionFermerSession()
-    nomUtilisateur.innerHTML = user.displayName; //proprieté de l'objet 'user'
+    nomUtilisateur.innerHTML = user.displayName; //proprieté de l'objet 'user' (acces avec clg de user)
     chatContenu(user)
 
   } else {
@@ -23,7 +23,22 @@ firebase.auth().onAuthStateChanged((user) => { //Définir un observateur d'état
 const chatContenu = (user)=> {
   formulaire.addEventListener('submit', (e) =>{
     e.preventDefault();
+    let contenu = text.value.trim() //trim elimine les espaces vides
+    console.log(contenu) //on lit ce qu'utilisateur a ecrit dans l'input
+    if(contenu == ''){  // s'il n'a rien ecrit on sort de la fonction (return)
+      console.log('text vide');      
+      return 
+    }
+    firebase.firestore().collection('chat').add({ // sinon on crée un objet pour garder ce qu'il a ecrit en 'chat'
+      text: text.value, //on garde le texte
+      uid : user.uid,   //on garde l'id du client qui vient de l'objet 'user'
+      date: Date.now()  //object date de js
+    }).then(res => {  // on a besoin d'une reponse donc on utilise then
+      console.log('texto agregado a firestore') // on verifie si tout est OK, si c'est ajouté a firestore 
+    })
     
+    text.value = ''; 
+
   })
 }
 
