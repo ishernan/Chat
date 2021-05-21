@@ -40,6 +40,25 @@ const chatContenu = (user)=> {
     text.value = ''; 
 
   })
+
+  firebase.firestore().collection("chat").orderBy('date')  // pour capter en temp reelle les chats
+    .onSnapshot((snapshot) => {
+        snapshot.docChanges().forEach((change) => {
+            if (change.type === "added") { //quand on ecrit
+                console.log("Ajoute chat: ", change.doc.data());
+            }
+
+
+            
+            if (change.type === "modified") {
+                console.log("Modifie chat: ", change.doc.data());
+            }
+            if (change.type === "removed") {
+                console.log("Elimine chat: ", change.doc.data());
+            }
+        });
+    });
+
 }
 
 const actionAcces = ()=> {
