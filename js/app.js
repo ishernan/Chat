@@ -5,8 +5,6 @@ const contenuWeb      = document.querySelector('#contenuWeb');
 const text            = document.querySelector('#text');
 const formulaire      = document.querySelector('#formulaire');
 
-
-
 firebase.auth().onAuthStateChanged((user) => { //Définir un observateur d'état d'authentification et obtenir les données utilisateur. 
   if (user) {
     contenuWeb.innerHTML= ''; //pour netoyer dès que l'utilisateur est detecté
@@ -73,7 +71,7 @@ const chatContenu = (user)=> {
 
 const actionAcces = ()=> {
   formulaire.classList.add('d-none'); 
-  contenuWeb.innerHTML = `<p class="lead mt-5 text-center bg-white w-25 border rounded-3">Initialiser session</p>`
+  contenuWeb.innerHTML = `<p class="lead px-3 text-center text-warning bg-black d-inline-flex">Initialiser session</p>`
 
   btnLogin.addEventListener('click', async()=>{
     const provider = new firebase.auth.GoogleAuthProvider();
